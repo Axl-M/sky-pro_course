@@ -29,27 +29,3 @@ class Question():
     def build_negative_feedback(self):
         return f'Ответ НЕВЕРНЫЙ, верный ответ - {self.question_answer} '
 
-
-##### TESTS
-
-# question
-# difficulty
-# correct answer
-data = {
-    "q": "How many days we have in week?",
-    "d": "1",
-    "a": "7"
-}
-
-
-q_10 = Question(data.get("q"), data.get("d"), data.get("a"))
-print(q_10.get_points())
-
-q_10.user_answer = '7'
-print(q_10.is_correct())
-q_10.user_answer = '8'
-print(q_10.is_correct())
-
-print(q_10.build_question())
-print(q_10.build_positive_feedback())
-print(q_10.build_negative_feedback())
