@@ -29,3 +29,6 @@ class Question():
     def build_negative_feedback(self):
         return f'Ответ НЕВЕРНЫЙ, верный ответ - {self.question_answer} '
 
+
+    def __repr__(self):
+        return f'{self.question_text} - {self.question_answer} ({self.question_diff}/5)'

@@ -1,4 +1,4 @@
-question_data = [{
+questions_data = [{
     "q": "How many days do we have in week?",
     "d": "1",
     "a": "7"
@@ -16,6 +16,6 @@ question_data = [{
     "a": "1000"
 }, {
     "q": "How many sides does hexagon have?",
-    "d": "",
-    "a": ""
+    "d": "4",
+    "a": "6"
 }]
