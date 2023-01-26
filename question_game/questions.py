@@ -1,7 +1,7 @@
 class Question():
     def __init__(self, question_text, question_diff, question_answer):
         self.question_text = question_text
-        self.question_diff = question_diff
+        self.question_diff = int(question_diff)
         self.question_answer = question_answer
 
         self.is_asked = False
@@ -30,6 +30,7 @@ class Question():
         return f'Ответ НЕВЕРНЫЙ, верный ответ - {self.question_answer} '
 
 
+##### TESTS
 
 # question
 # difficulty
@@ -41,5 +42,14 @@ data = {
 }
 
 
-
 q_10 = Question(data.get("q"), data.get("d"), data.get("a"))
+print(q_10.get_points())
+
+q_10.user_answer = '7'
+print(q_10.is_correct())
+q_10.user_answer = '8'
+print(q_10.is_correct())
+
+print(q_10.build_question())
+print(q_10.build_positive_feedback())
+print(q_10.build_negative_feedback())
