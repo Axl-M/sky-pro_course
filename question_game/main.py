@@ -1,36 +1,19 @@
-import random
-from questions import Question
-from data import questions_data
+from utils import load_questions, count_correct_answers, count_points
 
 def main():
-    questions = []
-
-    for question_data in questions_data:
-        questions.append(Question(
-            question_data["q"],
-            question_data["d"],
-            question_data["a"]
-        ))
-
-    random.shuffle(questions)
+    questions = load_questions()
 
     for question in questions:
         print(question.build_question())
-        user_answer = input()
-        question.user_answer = user_answer
+        question.user_answer = input()
 
         if question.is_correct():
             print(question.build_positive_feedback())
         else:
             print(question.build_negative_feedback())
 
-    correct_counter = 0
-    points = 0
-
-    for question in questions:
-        if question.is_correct():
-            correct_counter += 1
-            points += question.get_points()
+    correct_counter = count_correct_answers(questions)
+    points = count_points(questions)
 
     print("\nВот и всё!")
     print(f"Отвечено {correct_counter} вопросов из {len(questions)}")
