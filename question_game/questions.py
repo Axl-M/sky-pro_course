@@ -19,7 +19,7 @@ class Question():
 
 
     def build_question(self):
-        return f'Вопрос: {self.question_text}\nСложность {self.question_diff}/5'
+        return f'\nВопрос: {self.question_text}\nСложность {self.question_diff}/5'
 
 
     def build_positive_feedback(self):

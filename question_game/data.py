@@ -1,21 +1,21 @@
 questions_data = [{
-    "q": "How many days do we have in week?",
+    "q": "Сколько дней в неделе?",
     "d": "1",
     "a": "7"
 }, {
-    "q": "How many letters are there in English alphabet?",
+    "q": "Сколько букв в алфавите?",
     "d": "3",
-    "a": "26"
+    "a": "33"
 }, {
-    "q": "How many sides are there in triangle?",
+    "q": "Сколько сторон у треугольника?",
     "d": "2",
     "a": "3"
 }, {
-    "q": "How many years are there in one Millenium?",
+    "q": "Сколько лет в тысячелетии (Миллениуме)?",
     "d": "2",
     "a": "1000"
 }, {
-    "q": "How many sides does hexagon have?",
+    "q": "Сколько сторон у шестигранника?",
     "d": "4",
     "a": "6"
 }]
