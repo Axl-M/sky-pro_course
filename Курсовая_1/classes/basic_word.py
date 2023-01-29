@@ -1,20 +1,13 @@
-class BasicWord:
-    """
-    поля:
-    исходное слово
-    набор допустимых подслов
-    методы:
-    проверка введенного слова в списке допустимых подслов (вернет bool)
-    подсчет к-ва слов (вернет int)
-    """
+# получить подслова
+#
+# получить к-во подслов
+#
+# проверить влетс ли слово подсловом
 
+class BasicWord:
     def __init__(self, word, sub_words):
-        """
-        исходное слово
-        набор допустимых подслов сосотавленных из исходного
-        """
-        self.word = word
-        self.sub_words = sub_words
+        self.word = word            # исходное слово
+        self.sub_words = sub_words  # набор допустимых подслов сосотавленных из исходного
 
     def __repr__(self):
         return f"{self.word} содержит {len(self.sub_words)} слов"
@@ -35,3 +28,5 @@ class BasicWord:
         """
         return 7
         # реализовать
+        # return len(self.sub_words)
+
