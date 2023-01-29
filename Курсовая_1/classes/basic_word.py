@@ -25,7 +25,7 @@ class BasicWord:
         :param candidate:
         :return: bool
         """
-        return True
+        return candidate.lower() in self.sub_words
         # реализовать проверку
 
     def count_subwords(self):
