@@ -8,16 +8,16 @@ class BasicWord:
     подсчет к-ва слов (вернет int)
     """
 
-    def __init__(self, word, subwords):
+    def __init__(self, word, sub_words):
         """
         исходное слово
         набор допустимых подслов сосотавленных из исходного
         """
         self.word = word
-        self.subword = subwords
+        self.sub_words = sub_words
 
     def __repr__(self):
-        pass
+        return f"{self.word} содержит {len(self.sub_words)} слов"
 
     def has_subword(self, candidate):
         """
