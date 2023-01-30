@@ -12,7 +12,7 @@ class Player:
         :return: int
         """
         return len(self.used_words)
-    # реализовать
+
 
     def add_word(self, new_word):
         """
@@ -31,9 +31,9 @@ class Player:
 
 
 # test
-vasiliy = Player("Василий")
-vasiliy.add_word('жопа')
-vasiliy.add_word('внатуре')
-print(vasiliy)
-print(vasiliy.has_used('жопа'))
-print(vasiliy.has_used('что-то'))
+# vasiliy = Player("Василий")
+# vasiliy.add_word('жопа')
+# vasiliy.add_word('внатуре')
+# print(vasiliy)
+# print(vasiliy.has_used('жопа'))
+# print(vasiliy.has_used('что-то'))

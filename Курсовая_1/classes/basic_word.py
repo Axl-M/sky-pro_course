@@ -1,8 +1,3 @@
-# получить подслова
-#
-# получить к-во подслов
-#
-# проверить влетс ли слово подсловом
 
 class BasicWord:
     def __init__(self, word, sub_words):
@@ -23,10 +18,8 @@ class BasicWord:
 
     def count_subwords(self):
         """
-        подсчет к-ва слов
+        подсчет к-ва подслов
         :return: int
         """
-        return 7
-        # реализовать
-        # return len(self.sub_words)
+        return len(self.sub_words)
 
