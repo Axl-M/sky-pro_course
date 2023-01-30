@@ -9,7 +9,7 @@ class BasicWord:
 
     def has_subword(self, candidate):
         """
-        проверка введенного слова в списке допустимых подслов
+        Проверка введенного слова в списке допустимых подслов
         :param candidate:
         :return: bool
         """
@@ -18,7 +18,7 @@ class BasicWord:
 
     def count_subwords(self):
         """
-        подсчет к-ва подслов
+        Подсчет к-ва подслов
         :return: int
         """
         return len(self.sub_words)
