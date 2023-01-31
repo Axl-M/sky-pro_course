@@ -6,6 +6,7 @@
 
 # импорт встроенных пакетов, затем импортированных и последими пользовательские
 
+from colorama import Fore, Back, Style
 from utils import load_random_word
 from classes.player import Player
 
@@ -57,7 +58,8 @@ def main():
     print(f'Игра завершена, вы угадали {player.count_words()} слов!')
     print(f'Вы не смогли угадать: ', end=' ')
     for i in set(main_word.sub_words) - set(player.used_words):
-        print(i, end=', ')
+        # print(Fore.RED + 'some red text')
+        print(Fore.RED + i, end=', ')
 
 
 
