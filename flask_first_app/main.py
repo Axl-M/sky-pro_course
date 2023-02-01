@@ -23,11 +23,14 @@ def page_index():
 
 @app.route('/candidate/<int:id>')
 def page_profile(id):
-    str_candidates = '<pre>'
-    for candidate in candidates.values():
-        str_candidates += f'Имя кандидата - {candidate["name"]}\n'
-        str_candidates += f'Позиция кандидата - {candidate["position"]}\n'
-        str_candidates += f'Навыки - {candidate["skills"]}\n\n'
+    candidate = candidates[id]
+    # str_candidates = f'< img src = "https://picsum.photos/200"> \n'
+    str_candidates = f'<img src={candidate["picture"]}> </img> <br>'
+    # str_candidates += f'{candidate["picture"]} \n'
+    str_candidates += '<pre>'
+    str_candidates += f'Имя кандидата - {candidate["name"]} <br>'
+    str_candidates += f'Позиция кандидата - {candidate["position"]} <br>'
+    str_candidates += f'Навыки - {candidate["skills"]} <br><br>'
     str_candidates += '</pre>'
     return str_candidates
 
