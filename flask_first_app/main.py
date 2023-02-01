@@ -1,4 +1,7 @@
 from flask import Flask
+from classes.candidates_getter import CandidatesGetter
+
+candidate_getter = CandidatesGetter('candidates.json')
 
 app = Flask(__name__)
 
@@ -17,40 +20,11 @@ app = Flask(__name__)
 # Навыки через запятую
 # <рге>
 
-@app.route('/')  # так гораздо элегантнее
+@app.route('/')
 def page_index():
-    return '<pre> Я страничка  :) \n            и я главна страничка!  \n ещё адреса' \
-           '\n /feed' \
-           '\n /profile ' \
-           '\n /messages ' \
-           '\n /users/НОМЕР ' \
-           '\n /catalog/НАИМЕНОВАНИЕ_ТОВАРА  </pre>'
+    candidates = candidate_getter.get_all()
 
 # app.add_url_rule('/', view_func=page_index)
-
-@app.route('/profile')
-def page_profile():
-    return 'Страница профиля пользователя'
-
-@app.route('/feed/')
-def page_feed():
-    return 'Лента пользователя'
-
-@app.route('/messages')
-def page_messages():
-    return 'Новых сообщений нет'
-
-@app.route('/users/<string:uid>')
-def profile(uid):
-    return f'<h1> Профиль {uid} </h1>'
-
-@app.route('/catalog/<itemid>')
-def tovar(itemid):
-    return f'<h1> Страничка товара {itemid}</h1>'
-
-@app.route('/sum/<int:a>/<int:b>')
-def sum_page(a, b):
-    return str(a + b)
 
 #
 # Шаг 2
