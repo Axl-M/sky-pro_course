@@ -11,7 +11,10 @@ candidates = utils.load_candidates()
 
 @app.route('/')
 def page_index():
-    # candidates = candidate_getter.get_all()
+    """
+    Выводит инфо по всем кандидатам
+    :return: всё инфо
+    """
     str_candidates = '<pre>'
     for candidate in candidates.values():
         str_candidates += f'Имя кандидата - {candidate["name"]}\n'
@@ -23,30 +26,29 @@ def page_index():
 
 @app.route('/candidate/<int:id>')
 def page_profile(id):
+    """
+    выводит инфо по конкретному кандидату
+    :param id: id кандидата
+    :return: инфо о кандидате
+    """
     candidate = candidates[id]
-    # str_candidates = f'< img src = "https://picsum.photos/200"> \n'
     str_candidates = f'<img src={candidate["picture"]}> </img> <br>'
-    # str_candidates += f'{candidate["picture"]} \n'
-    str_candidates += '<pre>'
     str_candidates += f'Имя кандидата - {candidate["name"]} <br>'
     str_candidates += f'Позиция кандидата - {candidate["position"]} <br>'
     str_candidates += f'Навыки - {candidate["skills"]} <br><br>'
-    str_candidates += '</pre>'
     return str_candidates
 
-# app.add_url_rule('/', view_func=page_index)
-
-#
-# Шаг 2
-# Создайте представление для роута candidate/<x> ,
-# Который бы выводил данные про кандидата так:
-# <img src="(ссылка на картинку)">
-# <рге>
-# Имя кандидата -
-# Позиция кандидата
-# Навыки через запятую
-# </рге>
-
+@app.route('/skill/<skill>')    # параметром автоматически передаетс СТРОКА
+def page_skills(skill):
+    str_candidates = ''
+    for candidate in candidates.values():
+        candidate_skills = candidate['skills'].split(', ')
+        candidate_skills = [x.lower() for x in candidate_skills]
+        if skill.lower() in candidate_skills:
+            str_candidates += f'Имя кандидата - {candidate["name"]} <br>'
+            str_candidates += f'Позиция кандидата - {candidate["position"]} <br>'
+            str_candidates += f'Навыки - {candidate["skills"]} <br><br>'
+    return str_candidates
 # ШагЗ
 # Создайте представление /skill/<x> для поиска по навыкам.
 # Выведите тех кандидатов, в списке навыков у которых содержится skill .
