@@ -5,7 +5,7 @@
     "position": "Delphi developer",
     "gender": "female",
     "age": 26,
-    "skills": "Delphi, Pascal, Fortran< Basic"
+    "skills": "Delphi, Pascal, Fortran, Basic"
   },
   { "id": 2,
     "name": "Стас Бурый",
@@ -45,6 +45,6 @@
     "position": "Python developer",
     "gender": "male",
     "age": 33,
-    "skills": "Python, HTML, CSS, Git, SQL, Bootstrap, LINUX"
+    "skills": "Python, HTML, CSS, Git, SQL, Bootstrap, LINUX, Golang, Django, Flask, Fast API"
   }
 ]

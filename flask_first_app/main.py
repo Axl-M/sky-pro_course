@@ -1,28 +1,35 @@
 from flask import Flask
+import json
+import utils
 from classes.candidates_getter import CandidatesGetter
 
 candidate_getter = CandidatesGetter('candidates.json')
 
 app = Flask(__name__)
 
-
-# Создайте представление для роута / (главная страница).
-# Выведите список в таком формате (тег <рге> - преформатирование)
-# <рге>
-# Имя кандидата -
-# Позиция кандидата
-# Навыки через запятую
-# Имя кандидата -
-# Позиция кандидата
-# Навыки через запятую
-# Имя кандидата -
-# Позиция кандидата
-# Навыки через запятую
-# <рге>
+candidates = utils.load_candidates()
 
 @app.route('/')
 def page_index():
-    candidates = candidate_getter.get_all()
+    # candidates = candidate_getter.get_all()
+    str_candidates = '<pre>'
+    for candidate in candidates.values():
+        str_candidates += f'Имя кандидата - {candidate["name"]}\n'
+        str_candidates += f'Позиция кандидата - {candidate["position"]}\n'
+        str_candidates += f'Навыки - {candidate["skills"]}\n\n'
+    str_candidates += '</pre>'
+    return str_candidates
+
+
+@app.route('/candidate/<int:id>')
+def page_profile(id):
+    str_candidates = '<pre>'
+    for candidate in candidates.values():
+        str_candidates += f'Имя кандидата - {candidate["name"]}\n'
+        str_candidates += f'Позиция кандидата - {candidate["position"]}\n'
+        str_candidates += f'Навыки - {candidate["skills"]}\n\n'
+    str_candidates += '</pre>'
+    return str_candidates
 
 # app.add_url_rule('/', view_func=page_index)
 
@@ -54,4 +61,4 @@ def page_index():
 
 
 if __name__ == '__main__':
-    app.run()   # запуск сервера
+    app.run(debug=True)   # запуск сервера. debug - чтобы не перезагружать
