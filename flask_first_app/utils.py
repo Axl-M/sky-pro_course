@@ -51,17 +51,24 @@ def get_candidates_by_name(candidates, candidate_name):
     return candidate_list
 
 
-def get_candidates_by_skill(skill_name):
+def get_candidates_by_skill(skill):
     """
     Возвращает кандидатов по навыку
-    :param skill_name:
+    :param skill:
     :return:
     """
-    pass
+    candidates_list = []
+    for candidate in candidates.values():
+        candidate_skills = candidate['skills'].split(', ')
+        candidate_skills = [x.lower() for x in candidate_skills]
+        if skill.lower() in candidate_skills:
+            candidates_list.append(candidate)
+    return candidates_list
 
 # test
 # print(load_candidates_from_json(path))
 candidates = load_candidates_from_json(path)
 # print(candidates)
 # print(get_candidates_by_name(candidates, "Наташа Приз"))
-print(get_candidate(6))
+# print(get_candidate(6))
+print(get_candidates_by_skill('golang'))
