@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All candidates</title>
+</head>
+<body>
+<p><a href="/">Домой</a></p>
+<p><a href="/search_by_name">Поиск по имени</a></p>
+<p><a href="/search_by_skill">Поиск по навыку</a></p>
+<hr>
+<h1> Все кандидаты </h1>
+  {% for candidate in candidates.values() %}
+  <!--    <p><a href="/candidate/<candidate.id>"> {{candidate.id}} </a></p>-->
+  <p><a href="/candidates/<candidates/candidate.id>"> {{candidate.name}} </a></p>
+  {% endfor %}
+
+
+</body>
+</html>
