@@ -10,7 +10,7 @@
   <p><a href="/search_by_name">Поиск по имени</a></p>
   <p><a href="/search_by_skill">Поиск по навыку</a></p>
   <hr>
-    {% if skill %}
+    {% if candidates|length > 0 %}
         <div class="found_list">
             <h2> Найдено со скилом {{ skill }}: {{ candidates_len }}</h2>
             {% for candidate in candidates %}
@@ -22,6 +22,8 @@
             </div> <br>
             {% endfor %}
         </div>
+    {% else %}
+        <h1>Кандидатов нет</h1>
     {% endif %}
 
 
