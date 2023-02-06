@@ -6,12 +6,14 @@
 </head>
 <body>
     <p><a href="/">Домой</a></p>
-  <p><a href="/search_by_name">Поиск по имени</a></p>
+  <p><a href="/search/">Поиск по имени</a></p>
   <p><a href="/search_by_skill">Поиск по навыку</a></p>
   <hr>
-    <h1>{{candidate.name}}</h1>
-    <p>{{candidate.position}}</p>
-    <img src="{{candidate.picture}}">
-    <p>{{candidate.skills}}</p>
+    <h1>Найдено кандидатов: {{ candidates_len }}</h1>
+
+    {% for candidate in candidates %}
+    <p><a href="/candidates/{{ candidate.id }}"> {{candidate.name}} </a></p><hr>
+    {% endfor %}
+
 </body>
 </html>

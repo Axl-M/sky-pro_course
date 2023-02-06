@@ -6,3 +6,8 @@ background-color: wheat;
 font-weight: 300;
 text-align: justify
 }
+
+img {
+border: solid 2px;
+border-radius: 25px
+}

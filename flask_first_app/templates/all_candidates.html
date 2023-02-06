@@ -10,9 +10,8 @@
 <p><a href="/search_by_skill">Поиск по навыку</a></p>
 <hr>
 <h1> Все кандидаты </h1>
-  {% for candidate in candidates.values() %}
-  <!--    <p><a href="/candidate/<candidate.id>"> {{candidate.id}} </a></p>-->
-  <p><a href="/candidates/<candidates/candidate.id>"> {{candidate.name}} </a></p>
+  {% for candidate in candidates %}
+  <p><a href="/candidates/{{ candidate.id }}"> {{candidate.name}} </a></p><hr>
   {% endfor %}
 
 

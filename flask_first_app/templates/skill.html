@@ -5,13 +5,25 @@
     <title>skill</title>
 </head>
 <body>
-    <p><a href="/">Домой</a></p>
+<div class="a_buttons cls_left"></div>
+    <p><a href="/">На главную</a></p>
   <p><a href="/search_by_name">Поиск по имени</a></p>
   <p><a href="/search_by_skill">Поиск по навыку</a></p>
   <hr>
-    <h1>{{candidate.name}}</h1>
-    <p>{{candidate.position}}</p>
-    <img src="{{candidate.picture}}">
-    <p>{{candidate.skills}}</p>
+    {% if skill %}
+        <div class="found_list">
+            <h2> Найдено со скилом {{ skill }}: {{ candidates_len }}</h2>
+            {% for candidate in candidates %}
+            <div class="a_ordinary">
+                <a href="/candidate/{{ candidate.id }}"> {{ candidate.name }}</a>
+            </div>
+            <div class="skill-text">
+                <p>Навыки: {{ candidate.skills }}</p>
+            </div> <br>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+
 </body>
 </html>
