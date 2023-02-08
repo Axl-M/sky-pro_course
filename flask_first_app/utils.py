@@ -1,7 +1,4 @@
 import json
-# from typing import Union
-# from pprint import pprint
-from config import path
 from classes.candidates_getter import Candidate
 
 __data = []         # чтобы нельзя было получить данные из внешнего файла
@@ -45,7 +42,6 @@ def get_candidates_by_name(candidate_name: str) -> list[Candidate] | str:
         return 'Данные для поиска не указаны'
 
     return [candidate for candidate in __data if candidate_name.lower() in candidate['name'].lower() ]
-
 
 def get_candidates_by_skill(skill_for_search: str) -> list[Candidate] | str:
     """

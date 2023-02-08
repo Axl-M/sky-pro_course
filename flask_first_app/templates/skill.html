@@ -6,10 +6,12 @@
 </head>
 <body>
 <div class="a_buttons cls_left"></div>
-    <p><a href="/">На главную</a></p>
-  <p><a href="/search_by_name">Поиск по имени</a></p>
-  <p><a href="/search_by_skill">Поиск по навыку</a></p>
-  <hr>
+    <p><a href="/">Домой</a></p>
+    <p><a href="/all_candidates">Список всех кандидатов</a></p>
+    <p><a href="/search/<candidate_name>">Поиск по имени</a></p>
+    <p><a href="/skill/<skill_name>">Поиск по навыку</a></p>
+
+    <h3>Укажите в адресе после skill/ необходимый навык. <br> Например:  /skill/basic</h3>
     {% if candidates|length > 0 %}
         <div class="found_list">
             <h2> Найдено со скилом {{ skill }}: {{ candidates_len }}</h2>

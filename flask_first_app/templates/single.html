@@ -5,9 +5,10 @@
     <title>Candidate</title>
 </head>
 <body>
-  <p><a href="/">Домой</a></p>
-  <p><a href="/search_by_name">Поиск по имени</a></p>
-  <p><a href="/search_by_skill">Поиск по навыку</a></p>
+    <p><a href="/">Домой</a></p>
+    <p><a href="/all_candidates">Список всех кандидатов</a></p>
+    <p><a href="/search/<candidate_name>">Поиск по имени</a></p>
+    <p><a href="/skill/<skill_name>">Поиск по навыку</a></p>
   <hr>
     {% if 'not_found' in candidate.keys() %}
       <h1> {{ candidate.not_found }}</h1>

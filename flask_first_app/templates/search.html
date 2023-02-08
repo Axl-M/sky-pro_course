@@ -6,9 +6,11 @@
 </head>
 <body>
     <p><a href="/">Домой</a></p>
-  <p><a href="/search/">Поиск по имени</a></p>
-  <p><a href="/search_by_skill">Поиск по навыку</a></p>
+    <p><a href="/all_candidates">Список всех кандидатов</a></p>
+    <p><a href="/search/<candidate_name>">Поиск по имени</a></p>
+    <p><a href="/skill/<skill_name>">Поиск по навыку</a></p>
   <hr>
+    <h3>Укажите в адресе после search/ имя (или часть имени). <br> Например:  /search/наташа</h3>
     <h1>Найдено кандидатов: {{ candidates_len }}</h1>
 
     {% for candidate in candidates %}
