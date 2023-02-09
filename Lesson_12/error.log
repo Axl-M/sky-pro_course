@@ -1,0 +1,6 @@
+ERROR:root:Ошибка доступа к файлу
+Traceback (most recent call last):
+  File "C:\Users\Axl\Projects\Python\skypro_разработчик_на_Python\Lesson_12\logging_errors.py", line 9, in <module>
+    file = open(path)
+           ^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data.json'
