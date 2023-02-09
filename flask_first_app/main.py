@@ -52,6 +52,36 @@ def search_candidate_by_skill(skill=None):
     candidates = utils.get_candidates_by_skill(skill)
     return render_template('skill.html',  candidates=candidates, candidates_len=len(candidates), skill=skill)
 
+@app.route('/search_form')
+def search_form():
+    return render_template('form.html')
+
+@app.route('/search/')  # не получаем переменные здесь
+def search_page():      # переменные не передаются в функцию
+    """
+    Поисковый запрос
+    наберем прямо в адресной строке:
+    /search?s=поищи
+    :return:
+    """
+    # s = request.args['s']       #  данные о запросе мы получаем через объект request.
+    s = request.args.get('s')
+    if s:
+        return f'Вы ввели слово "{s}"'
+    return 'Вы ничего не ввели'
+
+
+@app.route('/filter')
+def filter_page():
+    """
+    в адресе вводим подобное
+    /filter?from=10&to=50
+    :return:
+    """
+    from_value = request.args['from']
+    to_value = request.args['to']
+    return f'Ищем в диапазоне от {from_value} до {to_value}'
+
 
 if __name__ == '__main__':
     app.run(debug=True)
