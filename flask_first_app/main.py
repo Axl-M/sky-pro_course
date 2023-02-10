@@ -3,6 +3,10 @@ import utils
 from config import path
 
 app = Flask(__name__)
+# Ограничиваем размер файла здесь
+app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024
+# Создаем множество разрешенных расширений
+ALLOWED_EXTENSIONS ={'txt', 'pdf', 'png', 'jpg', 'jpeg', 'JPG', 'gif'}
 
 data = utils.load_candidates_from_json(path)
 
@@ -82,6 +86,40 @@ def filter_page():
     to_value = request.args['to']
     return f'Ищем в диапазоне от {from_value} до {to_value}'
 
+@app.route('/todo')
+def todo():
+    return render_template('todo.html')
+
+@app.route('/add', methods=['POST'])
+def add_task():
+    # todo_list = {}
+    task_name = request.form['task_name']
+    # todo_list[len(todo_list) + 1] = task_name
+    return render_template('todo.html', task_name=task_name)
+    # return f'Добавлена задача: {task_name}'
+
+@app.route('/upload')
+def upload_form():
+    """
+    Эта вьюшка показывает форму, которая отправляет файлы.....
+    :return:
+    """
+    return render_template('upload_file.html')
+
+@app.route('/upload_file', methods=['POST'])
+def page_upload_file():
+    # Получаем объект картинки из формы
+    picture = request.files.get("picture")
+    filename = picture.filename
+    if filename:                            # если файл был загружен
+        extension = filename.split('.')[-1]   # Получаем расширение файла
+        # Если расширение файла в белом списке
+        if extension in ALLOWED_EXTENSIONS:
+            picture.save(f'./uploads/{filename}')
+            return f'Файл  "{filename}"  загружен и сохранен'
+        else:
+            return f'<h2> Tип файлов  "{extension}"  не поддерживается </h2>'
+    return 'Файл не был выбран'
 
 if __name__ == '__main__':
     app.run(debug=True)
