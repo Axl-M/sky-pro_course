@@ -3,12 +3,22 @@ import utils
 from config import path
 
 app = Flask(__name__)
-# Ограничиваем размер файла здесь
-app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024
+# Ограничиваем размер файла здесь 1Mb
+app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
 # Создаем множество разрешенных расширений
 ALLOWED_EXTENSIONS ={'txt', 'pdf', 'png', 'jpg', 'jpeg', 'JPG', 'gif'}
 
 data = utils.load_candidates_from_json(path)
+
+@app.errorhandler(413)
+def file_too_large(е):
+    return "<h1>Файл большеват</h1><p>Поищите поменьше, плиз!</р>"
+
+
+@app.errorhandler(404)
+def page_not_found(е):
+    return "<h1>Упс! Ошибка 404. Страница не найдена.....</h1><p>введите другой адрес</р>"
+
 
 @app.route('/')
 def index():
@@ -106,6 +116,7 @@ def upload_form():
     """
     return render_template('upload_file.html')
 
+
 @app.route('/upload_file', methods=['POST'])
 def page_upload_file():
     # Получаем объект картинки из формы
@@ -120,6 +131,7 @@ def page_upload_file():
         else:
             return f'<h2> Tип файлов  "{extension}"  не поддерживается </h2>'
     return 'Файл не был выбран'
+
 
 if __name__ == '__main__':
     app.run(debug=True)
