@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 import utils
 from config import path
 
@@ -132,6 +132,20 @@ def page_upload_file():
             return f'<h2> Tип файлов  "{extension}"  не поддерживается </h2>'
     return 'Файл не был выбран'
 
+
+# path : _ это модификатор маршрута, такой же как int: или float : он
+# позволяет положить в переменную path не один сегмент URL (от одного слеша
+# до другого), а сразу весь путь, который написан после uploads
+@app.route('/uploads/<path:path>')
+def static_dir(path):
+    """
+        обработает все адреса, которые начинаются с uploads
+        :param path:
+        :return:
+        """
+    # send_from_directory(directory, path)
+    # функция Flask для передачи клиенту запрошенного фала при указании папки и пути.
+    return send_from_directory("uploads", path)
 
 if __name__ == '__main__':
     app.run(debug=True)
