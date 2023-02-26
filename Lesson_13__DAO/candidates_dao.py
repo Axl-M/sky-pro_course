@@ -26,7 +26,11 @@ class CandidatesDAO:
 
 
 # test
-candidates_dao = CandidatesDAO
-candidates_all = CandidatesDAO.get_all()
-candidates_one = CandidatesDAO.get_by_id(1)
-candidates_python = CandidatesDAO.get_by_skill("python")
+# candidates_dao = CandidatesDAO()
+# candidates_all = candidates_dao.get_all()
+# candidates_one = candidates_dao.get_by_id(1)
+# candidates_python = candidates_dao.get_by_skill("python")
+#
+# print(candidates_all)
+# print(candidates_one)
+# print(candidates_python)
