@@ -1,12 +1,24 @@
 import json
+from candidate import Candidate
+
 class CandidatesDAO:
     """
-    объект для доступа к кандидатам
+    Объект для доступа к кандидатам
     """
     def load_data(self):
         with open("candidates.json", "r", encoding='utf-8') as file:
-            candidates = json.load(file)
+            candidates_data = json.load(file)
+            candidates = []
+            # Создаем список объектов
+            for candidate in candidates_data:
+                candidates.append(Candidate(
+                    candidate['id'],
+                    candidate['name'],
+                    candidate['position'],
+                    candidate['skills'],
+                ))
         return candidates
+
     def get_all(self):
         return self.load_data()
     def get_by_skill(self, skill):
@@ -30,7 +42,4 @@ class CandidatesDAO:
 # candidates_all = candidates_dao.get_all()
 # candidates_one = candidates_dao.get_by_id(1)
 # candidates_python = candidates_dao.get_by_skill("python")
-#
-# print(candidates_all)
-# print(candidates_one)
-# print(candidates_python)
+
