@@ -1,6 +1,8 @@
 import pytest
 from app import sum_func
 
+import conftest
+
 # делаем фикстуры для чисел
 # class TestSumFunc:
 #     def test_sum_positive(self):
@@ -15,17 +17,17 @@ from app import sum_func
 
 
 # фикстуры можно вынести в отдельный файл conftest.ру
-@pytest.fixture()
-def positive_numbers():
-    return [1, 1]
-
-@pytest.fixture()
-def negative_numbers():
-    return [-10, -30]
-
-@pytest.fixture()
-def positive_and_negative_numbers():
-    return [1, -1]
+# @pytest.fixture()
+# def positive_numbers():
+#     return [1, 1]
+#
+# @pytest.fixture()
+# def negative_numbers():
+#     return [-10, -30]
+#
+# @pytest.fixture()
+# def positive_and_negative_numbers():
+#     return [1, -1]
 
 class TestSumFunc:
     def test_sum_positive(self, positive_numbers):

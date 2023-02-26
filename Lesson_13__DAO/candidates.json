@@ -1,0 +1,50 @@
+[{
+    "id": 1,
+    "name": "Наташа Приз",
+    "picture": "https://picsum.photos/200",
+    "position": "Delphi developer",
+    "gender": "female",
+    "age": 26,
+    "skills": "Delphi, Pascal, Fortran, Basic"
+  },
+  { "id": 2,
+    "name": "Стас Бурый",
+    "picture": "https://picsum.photos/200",
+    "position": "Team lead",
+    "gender": "male",
+    "age": 33,
+    "skills": "Делегирование, пользование календарём, обсуждение важных вопросов"
+  },
+  { "id": 3,
+    "name": "Боря Демон",
+    "picture": "https://picsum.photos/200",
+    "position": "СТО",
+    "gender": "male",
+    "age": 37,
+    "skills": "Очень нужный человек"
+  },
+  {"id": 4,
+    "name": "Денис Небесный",
+    "picture": "https://picsum.photos/200",
+    "position": "HR manager",
+    "gender": "male",
+    "age": 26,
+    "skills": "LinkedID, Telegram, spam"
+  },
+  {"id": 5,
+    "name": "Агнесса Кохран",
+    "picture": "https://picsum.photos/200",
+    "position": "Тестировщик",
+    "gender": "female",
+    "age": 26,
+    "skills": "Python, QA"
+  },
+  {"id": 6,
+    "name": "Санёчек Мал-off",
+    "picture": "https://picsum.photos/200",
+    "position": "Python developer",
+    "gender": "male",
+    "age": 33,
+    "skills": "Python, HTML, CSS, Git, SQL, Bootstrap, LINUX, Golang, Django, Flask, Fast API"
+  }
+]
