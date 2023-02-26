@@ -21,19 +21,21 @@ class CandidatesDAO:
 
     def get_all(self):
         return self.load_data()
+
     def get_by_skill(self, skill):
         candidates = self.load_data()
         skilled_candidates = []
         skill_lower = skill.lower()
         for candidate in candidates:
-            candidate_skills = candidate["skills"].lower().split(", ")
+            candidate_skills = candidate.skills.lower().split(", ")
             if skill_lower in candidate_skills:
                 skilled_candidates.append(candidate)
         return skilled_candidates
+
     def get_by_id(self, candidate_id):
         candidates = self.load_data()
         for candidate in candidates:
-            if candidate["id"] == candidate_id:
+            if candidate.id == candidate_id:
                 return candidate
 
 
