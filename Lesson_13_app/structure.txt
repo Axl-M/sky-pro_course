@@ -1,0 +1,49 @@
+арр
+- blueprint_l
+- - dao
+- - templates (шаблоны блупринта 1)
+- - views.ру (вьюшки блупринта 1)
+- blueprint_2
+- - dao
+- - templates (шаблоны блупринта 2)
+- - views.ру (вьюшки блупринта 2)
+data (тут будут лежать данные)
+- candidates.json
+- vacancies.json
+static
+tests
+- blueprintl (тесты блупринта 1)
+- blueprint_2 (тесты блупринта 1)
+config (папка с конфигами)
+- development.ру (конфиги для разработки)
+- production.ру (конфиги для боевого сервера)
+requirements.txt
+run.py (или арр.ру или main.py)
+. gitignore
+README.md
+
+
+Постановка задачи
+Давайте напишем небольшое приложение, которое будет работать с кандидатами
+и вакансиями. У нас будут такие странички:
+GET / будет показывать текст "Это главная страничка"
+GET /candidates будет показывать список кандидатов
+GET /candidates/1 будет показывать инфо кандидата
+GET / vacancies будет показывать список вакансий
+GET / vacancies/1 будет показывать инфо вакансии
+Посмотрим, как будет выглядеть готовое приложение -
+Данные к проекту будут совершенно примитивными:
+Вакансии:
+
+[
+{"pk": 1, "company": "One Tech", "position": "QA lead", "salary": 3700}
+{"pk": 2, "company": "Duo IT", "position": "Python Dev", "salary": 3000}
+{"pk": 3, "company": "Trida Dev", "position": "React Dev", "salary": 2000}
+]
+
+Кандидаты:
+]
+{"pk": 1, "name": "Alex White", "position": "QA Lead"},
+{"pk": 2, "name": "Alice Grey", "position": "Python Dev"},
+{"pk": 3, "name": "Adam Black", "position": "React Dev"}
+]
